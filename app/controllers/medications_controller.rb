@@ -13,11 +13,15 @@ class MedicationsController < ApplicationController
     end
   end
 
-  get '/medications/:id/edit' do
+  get '/medications/:id/edit'
+    #Checking if they are logged in
     if !logged_in?
-      redirect "/login"
+      redirect "/login" #Redirecting if they aren't
     else
-      "An edit medication form"
+      if medication = current_user.medications.find_by(params[:id])
+        "An edit medication form #{current_user.id} is editing #{medication.id}"
+      else
+        redirect '/medications'
     end
   end
 
