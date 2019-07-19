@@ -1,4 +1,5 @@
 class ApplicationController < Sinatra::Base
+
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
@@ -6,8 +7,18 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "moraldistilled"
   end
 
-  get '/' do
-    "Debs making sure it works"
-  end
+  helpers do
 
+    def logged_in?
+      !!session[:email]
+    end
+
+    def login(email)
+      session[:email] = email
+    end
+
+    def logout!
+      session.clear
+    end
+  end
 end
