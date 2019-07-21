@@ -13,7 +13,7 @@ class MedicationsController < ApplicationController
     end
   end
 
-  get '/medications/:id/edit'
+  get '/medications/:id/edit' do
     #Checking if they are logged in
     if !logged_in?
       redirect "/login" #Redirecting if they aren't
@@ -22,7 +22,7 @@ class MedicationsController < ApplicationController
         "An edit medication form #{current_user.id} is editing #{medication.id}"
       else
         redirect '/medications'
+      end
     end
   end
-
 end
