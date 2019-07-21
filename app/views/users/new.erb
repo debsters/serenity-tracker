@@ -1,15 +1,33 @@
-<h1>Sign up</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Serenity</title>
 
-<form action="/users" method="POST">
-  <p>
-    <label for="email">Email:</label>
-    <input type="text" name="email" id="email" />
-  </p>
-  <p>
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password" />
-  </p>
+<!--SEO goodies-->
+<meta name="description" content="Sign up for Serenity.">
 
-  <input type="submit" />
+<!--Reset to normalize appearance of elements across browsers-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
 
-</form>
+<!--Our styles-->
+<link rel="stylesheet" href="/stylesheets/main.css" />
+
+</head>
+<body>
+   <img class="logo" src="/stylesheets/images/serenity.png" alt="Serenity"/>
+    <form role="form" action="/users" accept-charset="UTF-8" method="POST" class="signup-form">
+    <fieldset>
+      <legend>Sign up</legend>
+      <label for="user-email">Email</label>
+      <input type="email" name="email" id="email" required/>
+      <label for="user-password">Password</label>
+      <input type="password" name="password" id="password" required/>
+      <button type="submit">Sign up</button>
+    </fieldset>
+  </form>
+
+  <footer role="contentinfo" class="footer">
+    <p>Already have an account? <a href="/login">Log in</a></p>
+  </footer>
+</body>
+</html>
